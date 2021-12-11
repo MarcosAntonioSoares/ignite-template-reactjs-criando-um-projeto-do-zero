@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import PrismicDOM from 'prismic-dom';
 import { FiCalendar, FiClock, FiUser } from 'react-icons/fi';
 
-import SliceZone from '../../components/Post/';
+import PostComponet from '../../components/Post/';
 import { getPrismicClient } from '../../services/prismic';
 import commonStyles from '../../styles/common.module.scss';
 import styles from './post.module.scss';
@@ -82,7 +82,7 @@ export default function Post({ post }: PostProps) {
                   {time} min
                 </span>
               </div>
-              <SliceZone sliceZone={post.data.content} />
+              <PostComponet content={post.data.content} />
             </div>
           </div>
         </article>
