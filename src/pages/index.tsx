@@ -36,8 +36,6 @@ export default function Home({ postsPagination }: HomeProps) {
   const [loading, seLoading] = useState(false)
 
   function hancleMorePosts() {
-    const token = "MC5ZYWJWY1JNQUFDMEF1Ty0z.K--_ve-_vRzvv73vv73vv70IAe-_vWdRIFHvv71177-977-977-977-9W2Dvv73vv73vv73vv70XHe-_ve-_vVRX"
-    const fetch = require('cross-fetch')
     seLoading(true);
     fetch(nextPage)
       .then(res => res.json())
