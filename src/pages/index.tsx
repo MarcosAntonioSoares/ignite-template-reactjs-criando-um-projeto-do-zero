@@ -95,7 +95,7 @@ export default function Home({ postsPagination }: HomeProps) {
                   type="button"
                   onClick={hancleMorePosts}
                 >
-                  Carregar mais posts123
+                  Carregar mais posts
                 </button>
               )}
             </div>
