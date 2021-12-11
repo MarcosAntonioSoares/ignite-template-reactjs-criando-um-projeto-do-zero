@@ -1,1 +1,32 @@
-// TODO
+.section {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.main {
+  max-width: 1250px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+.container {
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 8.7rem);
+}
+
+.loading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--link);
+  line-height: 1.361rem;
+}

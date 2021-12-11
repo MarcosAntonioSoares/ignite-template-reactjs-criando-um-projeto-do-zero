@@ -89,5 +89,14 @@
     "import/resolver": {
       "typescript": {}
     }
-  }
+  },
+  "@typescript-eslint/explicit-module-boundary-types": [
+    "error",
+    {
+      "allowedNames": [
+        "ignoredFunctionName",
+        "ignoredMethodName"
+      ]
+    }
+  ]
 }

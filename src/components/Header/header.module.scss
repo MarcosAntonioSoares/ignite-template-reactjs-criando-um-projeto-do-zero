@@ -1,1 +1,18 @@
-// TODO
+.headerContainer {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+
+  .brand {
+    max-width: 236px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      vertical-align: middle;
+      display: inline-block;
+      height: auto;
+    }
+  }
+}
