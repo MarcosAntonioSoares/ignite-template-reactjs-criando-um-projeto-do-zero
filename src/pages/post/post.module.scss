@@ -21,11 +21,14 @@
     margin-top: 1.25rem;
     line-height: 1.25rem;
 
-    > span {
+    span,
+    time {
       font-size: 0.875rem;
       line-height: 1.063rem;
       color: var(--gray-300);
+    }
 
+    span {
       > svg {
         margin-right: 0.3rem;
       }
@@ -34,5 +37,58 @@
         margin-left: 1.5rem;
       }
     }
+
+    .d {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.divider {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #2d2f33;
+  margin: 4rem 0;
+  padding: 0;
+}
+
+.navigation {
+  overflow: hidden;
+  margin-bottom: 4rem;
+
+  a {
+    display: block;
+    position: relative;
+  }
+
+  .previous {
+    float: left;
+    text-align: left;
+
+    h3 {
+      text-align: left;
+    }
+  }
+
+  .next {
+    float: right;
+    text-align: right;
+
+    h3 {
+      text-align: right;
+    }
+  }
+
+  .previous,
+  .next {
+    width: 50%;
+  }
+
+  .label {
+    display: block;
+    margin: 0.4em 0 0;
+    font-weight: 600;
+    color: var(--link);
   }
 }

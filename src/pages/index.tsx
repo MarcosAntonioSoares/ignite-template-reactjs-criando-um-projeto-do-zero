@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FiCalendar, FiUser } from 'react-icons/fi';
+import Button from '../components/ExitButton';
 
 import { getPrismicClient } from '../services/prismic';
 import commonStyles from '../styles/common.module.scss';
@@ -28,9 +29,10 @@ interface PostPagination {
 
 interface HomeProps {
   postsPagination: PostPagination;
+  preview: boolean;
 }
 
-export default function Home({ postsPagination }: HomeProps) {
+export default function Home({ postsPagination, preview }: HomeProps): JSX.Element {
   const [posts, setPosts] = useState(postsPagination.results);
   const [nextPage, setNextPage] = useState(postsPagination.next_page);
   const [loading, seLoading] = useState(false)
@@ -54,11 +56,11 @@ export default function Home({ postsPagination }: HomeProps) {
   }
 
   return (
+
     <>
       <Head>
         <title>Home | spacetraveling</title>
       </Head>
-
       <main>
         <div className={commonStyles.main}>
           <div className={commonStyles.container}>
@@ -102,18 +104,23 @@ export default function Home({ postsPagination }: HomeProps) {
           </div>
         </div>
       </main>
+      <Button router={preview} />
     </>
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({
+  preview = false,
+  previewData
+}) => {
   const prismic = getPrismicClient();
   const postsResponse = await prismic.query(
     [Prismic.predicates.at('document.type', 'p')],
     {
       fetch: ['p.title', 'p.author', 'p.subtitle'],
       pageSize: 1,
-      orderings: '[document.last_publication_date desc]'
+      orderings: '[document.last_publication_date desc]',
+      ref: previewData?.ref ?? null,
     }
   );
 
@@ -129,8 +136,9 @@ export const getStaticProps = async () => {
     props: {
       postsPagination: {
         results: posts,
-        next_page: postsResponse.next_page
+        next_page: postsResponse.next_page,
       },
+      preview
     },
     revalidate: 60 * 30, // 30 minutos
   };
